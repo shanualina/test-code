@@ -34,6 +34,9 @@ router.post('/add', async (req, res, next) => {
 router.get('/list', async (req, res) => {
     try {
         const properties = await property.findAll({
+            order: [
+                ['id', 'DESC']
+            ],
         })
         if (properties) {
             return res.send({
